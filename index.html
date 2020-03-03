@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard SpaceX</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+	<link href="stylesheetDashboard.css" rel="stylesheet" type="text/css"/>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Audiowide|Coda|Saira&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container">
+  		<header class="header">
+  			<div class="spacex"><h1>SpaceX</h1></div>
+  		</header>
+  		<main class="main">
+  			<div class="main-header__heading"><h2>Hello captain!</h2></div>
+  			<div class="main-header__updates"><h2>Ship status</h2></div>
+  			<div class="main-overview">
+			  <div class="overviewcard">
+			    <div class="overviewcard__text"><h3>Engine 1 functioning</h3></div>
+			    <div class="overviewcard__info"><h1>78%</h1></div>
+			  </div>
+			  <div class="overviewcard">
+			    <div class="overviewcard__text"><h3>Engine 2 functioning</h3></div>
+			    <div class="overviewcard__info"><h1>92%</h1></div>
+			  </div>
+			  <div class="overviewcard">
+			    <div class="overviewcard__text"><h3>Engine 3 functioning</h3></div>
+			    <div class="overviewcard__info"><h1>99%</h1></div>
+			  </div>
+			</div>
+			<div class="main-header__records"><h2>Travel records</h2></div>
+			<div class="main-cards">
+			  <div class="card">
+			  	<div class="containerGraph1">
+			  		<canvas id="graph1"></canvas>
+			  	</div>
+			  	
+			  	<script>
+			  		
+			  		var graph1 = document.getElementById('graph1').getContext('2D');
+
+			  		var stopsChart = new Chart('graph1', {
+			  			type:'bar',
+			  			data:{
+			  				labels:['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+			  				datasets:[{
+			  					label:'Miles In Millions',
+			  					data:[
+			  						13,
+			  						12,
+			  						14,
+			  						9,
+			  						11,
+			  						0
+			  					],
+			  					backgroundColor:'#BB86FC'
+			  						
+			  				}]
+			  			},
+			  			options:{
+			  				responsive: true,
+			  				title:{
+			  					display:true,
+			  					text:'Miles traveled (x million)',
+			  					fontSize:24
+			  				},
+			  				legend:{
+			  					display:false
+			  				}
+
+			  			}
+			  		});
+			  	</script>
+			  </div>
+			  <div class="card">
+			  	<div class="containerGraph2">
+			  		<canvas id="graph2"></canvas>
+			  	</div>
+			  	<script>
+			  	var graph2 = document.getElementById('graph2').getContext('2D');
+
+			  	var speedsChart = new Chart('graph2', {
+			  			type:'horizontalBar',
+			  			data:{
+			  				labels:['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+			  				datasets:[{
+			  					label:'Average speeds',
+			  					data:[
+			  						16650,
+			  						17054,
+			  						16857,
+			  						15978,
+			  						16743,
+			  						0
+			  						
+			  					],
+			  					backgroundColor:'#3700B3'
+			  						
+			  				}]
+			  			},
+			  			options:{
+			  				responsive: true,
+			  				title:{
+			  					display:true,
+			  					text:'Average miles an hour',
+			  					fontSize:24
+			  				},
+			  				legend:{
+			  					display: false
+			  				}
+			  			}
+			  		});
+			  	</script>
+			  </div>
+			  <div class="card">
+			  	<div class="containerGraph3">
+			  		<canvas id="graph3" style=></canvas>
+			  	</div>
+			  	<script>
+			  	var graph3 = document.getElementById('graph3').getContext('2D');
+
+			  	var usageChart = new Chart('graph3', {
+			  			type:'pie',
+			  			data:{
+			  				labels:['Fuel', 'Water', 'Food Pills', 'Electricity'],
+			  				datasets:[{
+			  					label:'Supply usage',
+			  					data:[
+			  						40,
+			  						20,
+			  						12,
+			  						28
+			  						
+			  					],
+			  					backgroundColor:[
+			  					'#BB86FC',
+			  					'#3700B3',
+			  					'#03DAC6',
+			  					'#018786'
+			  					]	
+			  				}]
+			  			},
+			  			options:{
+			  				responsive: true,
+			  				title:{
+			  					display:true,
+			  					text:'Supply usage percentages',
+			  					fontSize:24
+			  				},
+			  				legend:{
+			  					display:true
+			  				}
+			  			}
+			  		});
+			  	</script>
+			  
+			  </div>
+			</div>
+  		</main>
+  		<footer class="footer">
+  			<div class="footer__copyright">&copy; 2020 Jim Göbel</div>
+  			<div class="footer__signature"></div>
+  		</footer>
+	</div>
+</body>
+</html>
